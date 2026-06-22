@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Home from '@/pages/Home';
 import NotesList from '@/pages/NotesList';
 import NoteDetail from '@/pages/NoteDetail';
+import Settings from '@/pages/Settings';
 import '@/styles/global.scss';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/notes" element={<NotesList />} />
             <Route path="/notes/:id" element={<NoteDetail />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

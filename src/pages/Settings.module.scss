@@ -1,0 +1,10 @@
+@use '@/styles/variables' as *;
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+
+  h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: $spacing-md; }
+  p  { color: $color-text-muted; }
+}
