@@ -1,50 +1,124 @@
-# React + TypeScript + Vite
+# 🎙 Speako
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Speak your thoughts. We'll turn them into notes.
 
-Currently, two official plugins are available:
+Speako is a voice-to-markdown notes app. Hit record, speak naturally, and your words are automatically structured into clean Markdown — ready to preview, save, and export.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live:** https://y0geshmainkar.github.io/speko/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- 🎙 **Voice recording** — one-tap mic using the browser Web Speech API
+- 📝 **Live transcript** — see your words appear in real time as you speak
+- ✨ **Auto formatting** — transcript is intelligently structured into headings, bullets, and paragraphs
+- 🤖 **AI formatting** — optional Claude AI mode for smarter, more natural Markdown output
+- 👁 **Markdown preview** — rendered preview before saving
+- 💾 **Persistent notes** — notes saved to localStorage via Redux Persist, survive page refresh
+- 📋 **Notes history** — browse all saved notes with title, date, and word count
+- 📤 **Export** — download any note as a `.md` file
+- 🗑 **Delete** — remove notes you no longer need
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + Vite |
+| Language | TypeScript (strict mode) |
+| State | Redux Toolkit + Redux Persist |
+| Routing | React Router v6 |
+| Styles | SCSS Modules |
+| Forms | React Hook Form + Zod |
+| HTTP | Axios |
+| Markdown | react-markdown |
+| Tests | Jest + React Testing Library |
+| CI/CD | GitHub Actions → GitHub Pages |
+
+---
+
+## Navigation
+
+Speako uses a **dual navigation** pattern:
+
+**Desktop** — sticky top navbar with logo and links
+
+**Mobile** — fixed bottom bar (like a native app)
+
+```
+Desktop (≥ 768px)          Mobile (< 768px)
+┌─────────────────────┐    ┌─────────────────────┐
+│ 🎙 Speako  Record Notes Settings │    │  page content       │
+└─────────────────────┘    │                     │
+                            └─────────────────────┘
+                            │ 🎙 Record │ 📋 Notes │ ⚙️ Settings │
+                            └─────────────────────┘
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The active route is highlighted and uses `aria-current="page"` for screen readers. Both navbars are keyboard accessible with visible focus states.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Project Structure
+
+```
+src/
+ app/           → Redux store, typed hooks
+ features/
+   recorder/    → slice, RecorderPage, hook wiring
+   notes/       → slice, selectors
+   preview/     → MarkdownPreview component
+ pages/         → Home, NotesList, NoteDetail, Settings
+ components/    → Navbar
+ services/      → claudeApi.ts
+ hooks/         → useSpeechRecognition.ts
+ styles/        → global SCSS, variables, mixins
+ types/         → Note, RecorderStatus, Web Speech API
+ utils/         → markdownFormatter.ts, exportNote.ts
+```
+
+---
+
+## Getting Started
+
+```bash
+git clone https://github.com/Y0geshmainkar/speko.git
+cd speko
+npm install
+npm run dev
+```
+
+Open http://localhost:5173/speko/
+
+### Optional — AI formatting
+
+Create a `.env.local` file:
+```
+VITE_CLAUDE_API_KEY=your_anthropic_api_key
+```
+
+Get a key at https://console.anthropic.com
+
+---
+
+## Scripts
+
+```bash
+npm run dev          # start dev server
+npm run build        # production build
+npm run type-check   # TypeScript check
+npm run lint         # ESLint
+npm run test         # Jest tests
+```
+
+---
+
+## CI/CD
+
+Every push to `main` triggers the GitHub Actions pipeline:
+
+```
+lint → type-check → test → build → deploy to gh-pages
 ```
