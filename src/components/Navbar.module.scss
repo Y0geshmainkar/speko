@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $color-primary;
+  text-decoration: none;
+  &:hover { text-decoration: none; }
+}
+
+.links {
+  display: flex;
+  gap: $spacing-lg;
+
+  a {
+    color: $color-text-muted;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    &:hover, &.active { color: $color-text; }
+  }
+}
