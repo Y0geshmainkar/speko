@@ -16,6 +16,10 @@ body {
   color: $color-text;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+  @media (max-width: $bp-md) {
+    padding-bottom: 64px; // space for mobile bottom nav
+  }
 }
 
 a {

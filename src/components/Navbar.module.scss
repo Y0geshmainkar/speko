@@ -1,0 +1,91 @@
+@use '@/styles/variables' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  @media (max-width: $bp-md) { display: none; }
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $color-primary;
+  text-decoration: none;
+  &:hover { text-decoration: none; opacity: 0.85; }
+}
+
+.links {
+  display: flex;
+  gap: $spacing-lg;
+}
+
+.link {
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  transition: color 0.2s, background 0.15s;
+
+  &:hover { color: $color-text; background: $color-surface-2; }
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.active {
+  color: $color-text;
+  font-weight: 600;
+  border-bottom: 2px solid $color-primary;
+}
+
+// Mobile bottom bar
+.bottomNav {
+  display: none;
+
+  @media (max-width: $bp-md) {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $color-surface;
+    border-top: 1px solid $color-border;
+    z-index: 100;
+  }
+}
+
+.bottomLink {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-xs;
+  color: $color-text-muted;
+  text-decoration: none;
+  font-size: 0.7rem;
+  gap: 2px;
+  transition: color 0.2s;
+
+  &:hover { color: $color-text; }
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: -2px;
+  }
+
+  span:first-child { font-size: 1.2rem; }
+}
+
+.bottomActive {
+  color: $color-primary;
+}
