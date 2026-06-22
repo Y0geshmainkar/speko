@@ -1,0 +1,60 @@
+@use '@/styles/variables' as *;
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+}
+
+.back {
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  &:hover { color: $color-text; }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+  margin-bottom: $spacing-lg;
+}
+
+.btnExport {
+  background: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  padding: $spacing-xs $spacing-md;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  &:hover { background: $color-primary; color: #fff; }
+}
+
+.btnDelete {
+  background: transparent;
+  color: $color-danger;
+  border: 1px solid $color-danger;
+  border-radius: $radius-sm;
+  padding: $spacing-xs $spacing-md;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+  &:hover { background: $color-danger; color: #fff; }
+}
+
+.notFound {
+  text-align: center;
+  color: $color-text-muted;
+  margin-top: $spacing-xl;
+}

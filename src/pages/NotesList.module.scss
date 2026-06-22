@@ -1,0 +1,73 @@
+@use '@/styles/variables' as *;
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xl;
+
+  h1 { font-size: 1.75rem; font-weight: 700; }
+}
+
+.empty {
+  text-align: center;
+  color: $color-text-muted;
+  margin-top: $spacing-xl;
+
+  p { margin-bottom: $spacing-md; }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.card {
+  @include card;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: border-color 0.2s;
+
+  &:hover { border-color: $color-primary; text-decoration: none; }
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+  margin-top: $spacing-xs;
+}
+
+.btnNew {
+  background: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover { background: $color-primary-dark; }
+}

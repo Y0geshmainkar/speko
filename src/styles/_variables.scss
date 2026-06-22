@@ -1,0 +1,44 @@
+// Colors
+$color-primary: #6c63ff;
+$color-primary-dark: #5548e0;
+$color-danger: #e05555;
+$color-success: #4caf50;
+$color-bg: #0f0f13;
+$color-surface: #1a1a24;
+$color-surface-2: #24243a;
+$color-text: #e8e8f0;
+$color-text-muted: #888899;
+$color-border: #2e2e45;
+
+// Typography
+$font-sans: 'Inter', system-ui, sans-serif;
+$font-mono: 'Fira Code', monospace;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;
+
+// Border radius
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+
+// Breakpoints
+$bp-md: 768px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+}
