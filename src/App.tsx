@@ -11,7 +11,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/speako">
+        <BrowserRouter basename="/speko">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notes" element={<NotesList />} />
