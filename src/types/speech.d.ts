@@ -40,6 +40,7 @@ interface SpeechRecognition extends EventTarget {
   ): void;
 }
 
+// eslint-disable-next-line no-var
 declare var SpeechRecognition: {
   prototype: SpeechRecognition;
   new (): SpeechRecognition;
@@ -78,6 +79,7 @@ interface SpeechGrammar {
   weight: number;
 }
 
+// eslint-disable-next-line no-var
 declare var SpeechGrammar: {
   prototype: SpeechGrammar;
   new (): SpeechGrammar;
@@ -91,6 +93,7 @@ interface SpeechGrammarList {
   [index: number]: SpeechGrammar;
 }
 
+// eslint-disable-next-line no-var
 declare var SpeechGrammarList: {
   prototype: SpeechGrammarList;
   new (): SpeechGrammarList;
