@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="#0f0f13"/>
+  <!-- Mic capsule -->
+  <rect x="196" y="96" width="120" height="188" rx="60" fill="#6c63ff"/>
+  <!-- Mic arc -->
+  <path d="M152 264 Q152 356 256 356 Q360 356 360 264"
+        stroke="#6c63ff" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <!-- Pole -->
+  <line x1="256" y1="356" x2="256" y2="408"
+        stroke="#6c63ff" stroke-width="26" stroke-linecap="round"/>
+  <!-- Base -->
+  <line x1="200" y1="408" x2="312" y2="408"
+        stroke="#6c63ff" stroke-width="26" stroke-linecap="round"/>
+</svg>
